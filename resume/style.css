@@ -1,0 +1,297 @@
+/* Base Styles */
+:root{
+    --bgl-color:#fff;
+    --bgs-color:whitesmoke;
+    --txtl-color:#000;
+    --txts-color: gray;
+    --border-color: #232323;
+}
+.dark-mode{    
+    --bgl-color:#000;
+    --bgs-color: #232323;
+    --txtl-color:#fff;
+    --txts-color: gray;
+    --border-color: #232323;
+}
+html{
+    scroll-behavior: smooth;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bgl-color);
+    color: var(--txtl-color);
+    margin: 0;
+    padding: 20px;
+}
+#header{
+    height: 55px;
+    width: 100%;
+    background-color: var(--bgs-color);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1500;
+    overflow: hidden;
+    
+}
+.h-nav{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.h-logo{
+    padding: 1rem 1.5rem 0;
+    
+}
+.h-logo > a{
+    color: var(--txtl-color);
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+.h-list{
+    padding: 2rem;
+    background-color: var(--bgs-color);
+    position: fixed;
+    bottom: -500px;
+    width: 100%;
+    list-style-type: none;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    row-gap: 60px;
+    column-gap: 30px;
+    text-align: center;
+    transition: all 1s ease;
+    z-index: -2000;
+}
+.h-list > li {
+    max-width: 100px;
+    padding: 1.5rem 0;
+    background-color: var(--bgl-color);
+    border: 2px solid var(--txtl-color);
+    border-radius: 8px;
+    cursor: pointer;
+}
+.h-list > li > a{
+    font-size: 1rem;
+    color: var(--txtl-color);
+}
+
+.toggle-bar{
+    padding: 0.5rem 1rem 0;
+    cursor: pointer;
+    transition: all 1s ease;
+}
+
+.toggle-bar-animate{
+    transform: rotate(90deg);
+}
+.toggle-action{
+    bottom: 60px;
+}
+.resume-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    
+}
+
+/* Header */
+.resume-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+.logo {
+   text-align: center;
+}
+.logo > img{
+    padding-top: 1.2rem;
+}
+.mode{
+    text-align: right;
+}
+.mode > svg{
+
+    transform: rotate(270deg);
+}
+
+
+.name-title > h1 {
+    font-size: 3rem;
+    padding-top: 2rem;
+}
+.name-title > p{
+    padding-left: 0.7rem;
+    font-size: 1.5rem;
+} 
+
+/* Sections */
+.contact-section, .profile-section, .experience-section, .skills-section {
+    margin-top: 1.4rem;
+    
+}
+/* .profile-section > p{
+    /* padding: 0.5rem; */
+    /* background-color: var(--bgs-color); */
+/* } */ 
+.contact-section{
+    line-height: 1.6rem;
+}
+
+.contact-section > a {
+    font-size: 1rem;
+    font-weight: 600;
+    /* color: var(--txtl-color); */
+}
+.contact-section > p {
+    font-size: 1rem;
+    font-weight: 600;
+ 
+}
+
+.personal-skills{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.s-media > a{
+    font-size: 1.2rem;
+}
+
+h1{
+    margin: 1rem 0;
+    color: var(--txtl-color);
+}
+p{
+    color: var(--txts-color);
+}
+a{
+    color: var(--txts-color);
+}
+section{
+    background-color: var(--bgl-color);
+}
+
+/* dark & light mode */
+.mode{
+    text-align: left;
+    cursor: pointer;
+}
+.mode > svg{
+    transform: rotate(0deg);
+    transition: all 1.5s ease;  
+} 
+.mode > svg:last-child{
+    transition: all 2s ease;
+    transform: rotate(0deg);
+}
+.mode > svg:last-child{
+    display: none;
+}
+
+/* Skill section */
+.personal-skills{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-content: center;
+    align-items: center;
+    gap:40px;
+    
+}
+.ps-wrapper{
+    text-align: center;
+}
+.project-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    
+}
+.project-wrapper > .ps-wrapper1{
+    flex-grow: 1;
+    min-width: 180px;
+    min-height: 280px;
+    background: #232323;
+}
+
+/* download section */
+#d-section{
+    display: grid;
+    place-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.d-btn{
+    height: 2.8rem;
+    width: 8rem;
+    font-size: 1rem;
+    font-weight: 400;
+    border-radius: 5px;
+    background-color: var(--bgl-color);
+    color: var(--txtl-color);
+    border: 2px solid var(--border-color);
+    cursor: pointer;
+}
+
+/* Responsive Grid */
+@media (min-width: 768px) {
+    #header{
+        display: none;
+    }
+    .resume-container {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 20px;
+    }
+
+    .contact-section {
+        grid-column: 1 / 2;
+    }
+
+    .profile-section, .experience-section, .skills-section {
+        grid-column: 2 / 3;
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .resume-container {
+        grid-template-columns: 1fr;
+    }
+
+    .resume-header, .contact-section, .profile-section, .experience-section, .skills-section {
+        width: 100%;
+    }
+    .name-title > h1 {
+        font-size: 1.8rem;
+        margin: 0;
+        text-align: center;
+    }
+    .name-title > p{
+        text-align: center;
+        font-size: 0.8rem;
+    }
+    .mode > svg{
+        position: absolute;
+        right: 2rem;
+        top: 1.2rem;
+        transform: rotate(270deg);
+    }
+    .mode > svg:last-child{
+        transition: all 2s ease;
+        transform: rotate(180deg);
+    }        
+}

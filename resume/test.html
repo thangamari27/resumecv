@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume to PDF</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        /* Basic styling for the resume content */
+        .resume-container {
+            width: 800px;
+            margin: auto;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container" id="resume-content">
+        <h1>Your Name</h1>
+        <p>Your Email | Your Phone Number | Your LinkedIn</p>
+    
+        <h2>Summary</h2>
+        <p>A concise statement highlighting your skills and experience as a MERN Stack Developer.</p>
+    
+        <h2>Skills</h2>
+        <ul>
+            <li>Technical skills (MERN stack, programming languages, frameworks)</li>
+            <li>Soft skills (problem-solving, teamwork, communication)</li>
+        </ul>
+    
+        <h2>Projects</h2>
+        <h3>Project 1: Title</h3>
+        <p>Description, Technologies, Your Role, Achievements</p>
+    
+        <h3>Project 2: Title</h3>
+        <p>Description, Technologies, Your Role, Achievements</p>
+    
+        <h2>Experience</h2>
+        <p>Job Title | Company | Location | Dates</p>
+        <ul>
+            <li>Responsibilities</li>
+            <li>Achievements</li>
+        </ul>
+    
+        <h2>Education</h2>
+        <p>Degree | Institution | Location | Dates</p>
+        <p>Relevant Courses</p>
+    
+        <h2>Certifications</h2>
+        <p>Certification Name | Issuing Organization | Date</p>
+    
+        <h2>Tips for an ATS-Friendly Resume</h2>
+        <ul>
+            <li>Keywords: Use keywords related to MERN stack development throughout your resume.</li>
+            <li>Quantify Achievements: Use metrics to demonstrate your impact (e.g., "Increased website traffic by 50%").</li>
+            <li>Tailor Your Resume: Customize your resume for each job application by focusing on the most relevant skills and experiences.</li>
+            <li>Proofread Carefully: Ensure your resume is free of errors and easy to read.</li>
+        </ul>
+    </div>
+    <button onclick="downloadResumePDF()">Download Resume as PDF</button>
+    <script>
+        function downloadResumePDF() {
+            const { jsPDF } = window.jspdf;
+    
+            // Use html2canvas to convert the content to an image
+            html2canvas(document.querySelector("#resume-content")).then(canvas => {
+                const imgData = canvas.toDataURL("image/png");
+                const pdf = new jsPDF("p", "mm", "a4");
+    
+                // Calculate the image dimensions
+                const imgWidth = 210;
+                const pageHeight = 297;
+                const imgHeight = (canvas.height * imgWidth) / canvas.width;
+                let position = 0;
+    
+                // Add the image to the PDF
+                pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+    
+                // Save the PDF
+                pdf.save("resume.pdf");
+            });
+        }
+    </script>
+        
+</body>
+</html>
