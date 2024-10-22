@@ -247,13 +247,13 @@ section{
 }
 
 /* Responsive Grid */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     #header{
         display: none;
     }
     .resume-container {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 2fr;
         gap: 20px;
     }
 
