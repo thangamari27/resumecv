@@ -247,7 +247,7 @@ section{
 }
 
 /* Responsive Grid */
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
     #header{
         display: none;
     }
@@ -257,13 +257,13 @@ section{
         gap: 20px;
     }
 
-    .contact-section {
+/*     .contact-section {
         grid-column: 1 / 2;
-    }
+    } */
 
-    .profile-section, .experience-section, .skills-section {
+/*     .profile-section, .experience-section, .skills-section {
         grid-column: 2 / 3;
-    }
+    } */
 }
 
 @media (max-width: 768px) {
