@@ -21,14 +21,14 @@ const darkMode = () => {
     document.body.classList.add('dark-mode');
     localStorage.setItem('dark-mode','active');
     mode_l.style.display = "none";
-    mode_d.style.display = "block";
+    mode_d.style.display = "inline-block";
     
 }
 const lightMode = () =>{
     document.body.classList.remove('dark-mode');
     localStorage.setItem('dark-mode',null);
     mode_d.style.display = "none";
-    mode_l.style.display = "block";
+    mode_l.style.display = "inline-block";
 }
 if(darkmode === 'active'){
     darkMode();
